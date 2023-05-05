@@ -7,7 +7,9 @@ export class Pagination<T> {
   total: number;
   totalPages: number;
 
-  constructor(items: T[], total: number, page: number, limit: number = PAGE_SIZE) {
+  constructor({ items, page, limit = PAGE_SIZE, total }:
+    { items: T[], total: number, page: number, limit: number }
+  ) {
     this.items = items;
     this.page = page;
     this.pageSize = limit;
