@@ -1,34 +1,18 @@
 import { randomUUID } from "crypto";
-import { z } from "zod";
-
-const customerSchema = z.object({
-  name: z.string().min(3).max(255).nonempty(),
-  email: z.string().email().nonempty(),
-  phone: z.string().min(10).max(11).nonempty().refine((value) => {
-    return !isNaN(Number(value));
-  })
-});
-
-type ICustomer = z.infer<typeof customerSchema>;
-
-export const validateCustomer = (data: unknown): ICustomer => {
-  const customer = customerSchema.parse(data) as ICustomer;
-  return customer;
-};
+import { ICustomer, customerSchema } from "./schema";
+import { fieldsValidation } from "@application/utils/fields-validation";
 
 export class Customer {
   private _customerId: string;
   private props: ICustomer;
 
   private set(props: Partial<ICustomer>) {
-    this.props = { ...this.props, ...props };
-    validateCustomer(this.props);
+    this.props = fieldsValidation<ICustomer>(customerSchema, { ...this.props, ...props });
   }
 
   constructor(props: ICustomer, customerId?: string) {
     this._customerId = customerId ?? randomUUID();
-    this.props = props;
-    validateCustomer(this.props);
+    this.set(props);
   }
 
   get id(): string {
