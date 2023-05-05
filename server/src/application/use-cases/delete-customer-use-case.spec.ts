@@ -24,4 +24,8 @@ describe('Delete Customer Use Case', () => {
 
     expect(repository.customers.length).toBe(0);
   });
+
+  it('should not be able to delete a customer that does not exist', async () => {
+    await expect(deleteCustomerUseCase.execute({ id: '123' })).rejects.toThrow();
+  });
 });
