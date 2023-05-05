@@ -11,15 +11,15 @@ describe('Create Customer Use Case', () => {
   });
 
   it('should be able to create a new customer', async () => {
-    await createCustomerUseCase.execute({
-      name: 'John Doe',
-      email: 'teste123@gmail.com',
-      phone: '11999999999',
-    });
+    const name = 'John Doe';
+    const email = 'teste123@gmail.com';
+    const phone = '11999999999';
+
+    await createCustomerUseCase.execute({ name, email, phone });
 
     expect(repository.customers.length).toBe(1);
-    expect(repository.customers[0].name).toBe('John Doe');
-    expect(repository.customers[0].email).toBe('teste123@gamil.com');
-    expect(repository.customers[0].phone).toBe('11999999999');
+    expect(repository.customers[0].name).toBe(name);
+    expect(repository.customers[0].email).toBe(email);
+    expect(repository.customers[0].phone).toBe(phone);
   });
 });
