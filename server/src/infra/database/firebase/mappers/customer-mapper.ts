@@ -1,8 +1,8 @@
 import { Customer } from "@application/entities/customer";
 
 export class CustomerMapper {
-  static toDomain(raw: FirebaseFirestore.DocumentSnapshot<FirebaseFirestore.DocumentData>): Customer | undefined {
-    if (!raw.exists) {
+  static toDomain(raw?: FirebaseFirestore.DocumentSnapshot<FirebaseFirestore.DocumentData>): Customer | undefined {
+    if (!raw?.exists) {
       return undefined;
     }
     return new Customer({
