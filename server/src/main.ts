@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ValidationPipe } from '@nestjs/common';
+import { Logger } from '@nestjs/common';
 
 async function bootstrap() {
   try {
@@ -12,7 +12,8 @@ async function bootstrap() {
 
     await app.listen(3000);
 
-    console.log(`Application is running on: ${await app.getUrl()}`);
+    Logger.log(`Server running on ${await app.getUrl()}`);
+    Logger.log(`Environment: ${process.env.NODE_ENV}`);
   } catch (error) {
     throw new Error(error);
   }

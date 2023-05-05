@@ -18,7 +18,7 @@ export class FirebaseService extends Firestore implements OnModuleInit {
       await this.collection('customers').limit(1).get();
 
     } catch (error) {
-      console.error('Firebase connection error', error);
+      Logger.error('Firebase connection error', error);
       this.terminate();
       process.exit(1);
     }
