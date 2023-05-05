@@ -32,11 +32,12 @@ export class InMemoryCustomersRepository implements CustomersRepository {
     const start = (page - 1) * pageSize;
     const end = start + pageSize;
 
-    return new Pagination<Customer>(
-      this.customers.slice(start, end),
-      this.customers.length,
+    return new Pagination<Customer>({
+      items: this.customers.slice(start, end),
+      total: this.customers.length,
       page,
-      pageSize,
+      limit: pageSize,
+    }
     );
   }
 }
