@@ -5,7 +5,6 @@ import { Firestore } from "@google-cloud/firestore";
 export class FirebaseService extends Firestore implements OnModuleInit {
   constructor() {
     super({
-      projectId: 'crud-clients-385812',
       keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
     });
   }
