@@ -17,3 +17,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CRUD_CUSTOMERS_386317 }}'
           channelId: live
           projectId: crud-customers-386317
+          entryPoint: ./frontend
