@@ -104,7 +104,7 @@ function renderTable(Clients) {
             $('#phone').val('${Client.phone}');
               $('#id').val('${Client.id}');
             ">Edit</button>
-          <button type="button" class="btn btn-danger btn-sm" onclick="deleteClients('${Client.id}')">Delete</button>
+          <button type="button" class="btn btn-danger btn-sm" onclick="api.deleteClients('${Client.id}')">Delete</button>
       </tr>              
     `;
 
