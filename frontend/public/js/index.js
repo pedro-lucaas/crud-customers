@@ -1,4 +1,9 @@
-const url = 'http://localhost:3000/customers';
+let url;
+if (window.location.hostname === 'localhost') {
+  url = 'http://localhost:3000/customers';
+} else {
+  url = 'https://crud-customers-afwve5ba5a-rj.a.run.app/customers';
+}
 
 class API {
   constructor(url) {
