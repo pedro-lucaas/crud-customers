@@ -74,4 +74,4 @@ Com isso, foi criado um secrets no seu repositorio, e a partir de agora o GitHub
 O deploy do backend é realizado através do Google Cloud Run e o deploy do frontend é realizado através do Firebase Hosting. Certifique-se de que as variáveis de ambiente secretas estejam configuradas corretamente para que o deploy seja executado com sucesso.
 
 ### Link de exemplo 
-app: https://crud-customers-386317.web.app/
+app: [crud-customers-386317.firebaseapp.com/](https://crud-customers-386317.firebaseapp.com/)
